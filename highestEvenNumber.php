@@ -1,25 +1,21 @@
 <?php
-$arr = [3, 7, 4, 9, 18, 5, 22];
+
+function getHighestEven($arr){
 $len = count($arr);
+$highestEven = NULL;
+
 for($i=0; $i<$len; $i++){
-    $highestEven = 0;
-    for($j=1; $j<$len; $j++){
-    if($arr[$i] % 2 == 0 && $arr[$i] > $arr[$j]){
+    if($arr[$i] % 2 == 0 && $arr[$i] > $highestEven){
         $highestEven = $arr[$i];
-        // echo $highestEven;
     }
-    // else if($arr[$i] % 2 == 0 && $arr[$i] < $arr[$j]){
-    //     $highestEven = $arr[$j];
-    //     echo $highestEven;
-    // }
-    else if($arr[$i] % 2== 0 && $arr[$i] == $arr[$j]){
-        continue;
-    }
-echo $highestEven;
+}
+return $highestEven;
 }
 
-}
-    // if( $arr[$i] % 2 == 1){
-    //     continue;
-    // }
+$arr = [3, 7, 12, 4, 9, 5];
+//     if($highestEven == NULL){
+//     echo "null";
+// }
+echo "Highest even number is : " .getHighestEven($arr);
+
 ?>
