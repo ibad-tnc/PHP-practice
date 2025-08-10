@@ -69,3 +69,23 @@ body {
     border-radius: 0.5rem;
     border: none;
 }
+
+@keyframes winnerHighlight{
+    0% { background-color: #FFF9BD; transform: scale(1); }
+    50% { background-color: #FFD700; transform: scale(1.1); }
+    100% { background-color: #FFF9BD; transform: scale(1); }
+}
+
+.winner-box {
+    animation: winnerHighlight 1s infinite ease-in-out;
+}
+
+@keyframes drawHighlight {
+    0% { color: #FFF9BD; transform: scale(1); }
+    50% { color: #FFD700; transform: scale(1.2); }
+    100% { color: #FFF9BD; transform: scale(1); }
+}
+
+.draw-text {
+    animation: drawHighlight 3s ease-in-out;
+}

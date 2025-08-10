@@ -40,6 +40,7 @@ boxes.forEach((box) => {
 
 const gameDraw = () => {
     msg.innerText = "Game is draw!";
+    msg.classList.add("draw-text"); // add animation class
     msgContainer.classList.remove("hide");
     disableBoxes();
 };
@@ -60,9 +61,13 @@ const checkWinner = () => {
     return false;
 };
 
-const showWinner = (winner) => {
+const showWinner = (winner, pattern) => {
     msg.innerText = `Player ${winner} wins!`;
     msgContainer.classList.remove("hide");
+        // Apply animation to winning boxes
+    pattern.forEach(index => {
+        boxes[index].classList.add("winner-box");
+    });
     disableBoxes();
 };
 
@@ -84,6 +89,11 @@ const resetGame = () => {
     count = 0;
     enableBoxes();
     msgContainer.classList.add("hide");
+        // Remove winner animation
+    boxes.forEach(box => {
+        box.classList.remove("winner-box");
+    });
+    msg.classList.remove("draw-text");
 };
 
 newGameBtn.addEventListener("click", resetGame);
